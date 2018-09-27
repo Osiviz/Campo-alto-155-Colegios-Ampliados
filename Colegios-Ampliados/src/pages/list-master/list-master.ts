@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController } from 'ionic-angular';
 
-import { Item } from '../../models/item';
-import { Items } from '../../providers';
+import { Curso } from '../../models/curso';
+import { CursosProvider } from '../../providers';
 
 @IonicPage()
 @Component({
@@ -10,10 +10,10 @@ import { Items } from '../../providers';
   templateUrl: 'list-master.html'
 })
 export class ListMasterPage {
-  currentItems: Item[];
+  currentItems: Curso[];
 
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
-    this.currentItems = this.items.query();
+  constructor(public navCtrl: NavController, public cursos: CursosProvider, public modalCtrl: ModalController) {
+    this.currentItems = this.cursos.query();
   }
 
   /**
@@ -22,33 +22,34 @@ export class ListMasterPage {
   ionViewDidLoad() {
   }
 
-  /**
-   * Prompt the user to add a new item. This shows our ItemCreatePage in a
-   * modal and then adds the new item to our data source if the user created one.
-   */
-  addItem() {
-    let addModal = this.modalCtrl.create('ItemCreatePage');
-    addModal.onDidDismiss(item => {
-      if (item) {
-        this.items.add(item);
-      }
-    })
-    addModal.present();
-  }
 
   /**
-   * Delete an item from the list of items.
+   * Perform a service for the proper items.
    */
-  deleteItem(item) {
-    this.items.delete(item);
-  }
+  // getItems(ev) {
+  //   let val = ev.target.value;
+  //   if (!val || !val.trim()) {
+  //     this.currentItems = [];
+  //     return;
+  //   }
+  //   this.currentItems = this.items.query({
+  //     name: val
+  //   });
+  // }
 
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
+  openItem(curso: Curso) {
     this.navCtrl.push('ItemDetailPage', {
-      item: item
+      curso: curso
     });
   }
+    /**
+   * Delete an item from the list of items.
+   */
+  deleteItem(curso) {
+    this.cursos.delete(curso);
+  }
 }
+
