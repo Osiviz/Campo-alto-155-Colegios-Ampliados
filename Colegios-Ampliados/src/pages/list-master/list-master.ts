@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ModalController } from 'ionic-angular';
 
-import { Item } from '../../models/item';
-import { Items } from '../../providers';
+import { Curso } from '../../models/curso';
+import { CursosProvider } from '../../providers';
 
 @IonicPage()
 @Component({
@@ -10,10 +10,10 @@ import { Items } from '../../providers';
   templateUrl: 'list-master.html'
 })
 export class ListMasterPage {
-  currentItems: Item[];
+  currentItems: Curso[];
 
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController) {
-    this.currentItems = this.items.query();
+  constructor(public navCtrl: NavController, public cursos: CursosProvider, public modalCtrl: ModalController) {
+    this.currentItems = this.cursos.query();
   }
 
   /**
@@ -40,18 +40,16 @@ export class ListMasterPage {
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
+  openItem(curso: Curso) {
     this.navCtrl.push('ItemDetailPage', {
-      item: item
+      curso: curso
     });
   }
-
-
     /**
    * Delete an item from the list of items.
    */
-  deleteItem(item) {
-    this.items.delete(item);
+  deleteItem(curso) {
+    this.cursos.delete(curso);
   }
 }
 

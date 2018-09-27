@@ -1,69 +1,68 @@
 
 import { Injectable } from '@angular/core';
-import { Item } from '../../models/item';
 import { Curso } from '../../models/curso';
 @Injectable()
 export class CursosProvider {
 
   cursos: Curso[];
 
-  defaultItem: any = {
-    "name": "Burt Bear",
-    "profilePic": "assets/img/speakers/bear.jpg",
-    "about": "Burt is a Bear.",
+  defaultItem: Curso = {
+    nombreCurso: "Burt Bear",
+    fotoCurso: "assets/img/speakers/bear.jpg",
+    decripcionCurso: "Burt is a Bear.",
   };
 
   
   constructor() {
-    let items = [
+    let cursos = [
       {
-        "name": "Burt Bear",
-        "profilePic": "assets/img/speakers/bear.jpg",
-        "about": "Burt is a Bear."
+        nombreCurso: "Burt Bear",
+        fotoCurso: "assets/img/speakers/bear.jpg",
+        decripcionCurso: "Burt is a Bear."
       },
       {
-        "name": "Charlie Cheetah",
-        "profilePic": "assets/img/speakers/cheetah.jpg",
-        "about": "Charlie is a Cheetah."
+        nombreCurso: "Charlie Cheetah",
+        fotoCurso: "assets/img/speakers/cheetah.jpg",
+        decripcionCurso: "Charlie is a Cheetah."
       },
       {
-        "name": "Donald Duck",
-        "profilePic": "assets/img/speakers/duck.jpg",
-        "about": "Donald is a Duck."
+        nombreCurso: "Donald Duck",
+        fotoCurso: "assets/img/speakers/duck.jpg",
+        decripcionCurso: "Donald is a Duck."
       },
       {
-        "name": "Eva Eagle",
-        "profilePic": "assets/img/speakers/eagle.jpg",
-        "about": "Eva is an Eagle."
+        nombreCurso: "Eva Eagle",
+        fotoCurso: "assets/img/speakers/eagle.jpg",
+        decripcionCurso: "Eva is an Eagle."
       },
       {
-        "name": "Ellie Elephant",
-        "profilePic": "assets/img/speakers/elephant.jpg",
-        "about": "Ellie is an Elephant."
+        nombreCurso: "Ellie Elephant",
+        fotoCurso: "assets/img/speakers/elephant.jpg",
+        decripcionCurso: "Ellie is an Elephant."
       },
       {
-        "name": "Molly Mouse",
-        "profilePic": "assets/img/speakers/mouse.jpg",
-        "about": "Molly is a Mouse."
+        nombreCurso: "Molly Mouse",
+        fotoCurso: "assets/img/speakers/mouse.jpg",
+        decripcionCurso: "Molly is a Mouse."
       },
       {
-        "name": "Paul Puppy",
-        "profilePic": "assets/img/speakers/puppy.jpg",
-        "about": "Paul is a Puppy."
+        nombreCurso: "Paul Puppy",
+        fotoCurso: "assets/img/speakers/puppy.jpg",
+        decripcionCurso: "Paul is a Puppy."
       }
     ];
 
-    for (let item of items) {
-      this.items.push(new Item(item));
+    for (let curso of cursos) {
+      this.cursos.push(new Curso(curso));
     }
   }
 
   query(params?: any) {
     if (!params) {
-      return this.items;
+      return this.cursos;
     }
 
-    return this.items.filter((item) => {
+    return this.cursos.filter((item) => {
       for (let key in params) {
         let field = item[key];
         if (typeof field == 'string' && field.toLowerCase().indexOf(params[key].toLowerCase()) >= 0) {
@@ -76,12 +75,12 @@ export class CursosProvider {
     });
   }
 
-  add(item: Item) {
-    this.items.push(item);
+  add(curso: Curso) {
+    this.cursos.push(curso);
   }
 
-  delete(item: Item) {
-    this.items.splice(this.items.indexOf(item), 1);
+  delete(curso: Curso) {
+    this.cursos.splice(this.cursos.indexOf(curso), 1);
   }
 
 }
