@@ -23,19 +23,14 @@ export class TutorialPage {
     this.dir = platform.dir();
     this.slides = [
       {
-        title: "Colegios Ampliados",
-        description: "Colegios ampliados",
-        image: 'assets/img/ica-slidebox-img-1.png',
+        title: "Bienvenido a Colegios Ampliados",
+        description: "Colegios ampliados es una iniciativa para la ampliacion de la educacion en la localidad de bosa",
+        image: 'assets/img/colegiofinal.png',
       },
       {
-        title: "Hola Mudno",
-        description: "Hola Mudno",
-        image: 'assets/img/ica-slidebox-img-2.png',
-      },
-      {
-        title: "Hola Mudno",
-        description: "Hola Mudno",
-        image: 'assets/img/ica-slidebox-img-3.png',
+        title: "Hora de aprender",
+        description: "En esta aplicacion podras encontrar material para ampliar tus conocimientos",
+        image: 'assets/img/libro.png',
       }
     ];
   }

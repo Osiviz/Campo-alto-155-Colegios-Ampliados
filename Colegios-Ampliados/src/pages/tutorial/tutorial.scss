@@ -18,6 +18,38 @@ page-tutorial {
     margin: 36px 0;
   }
 
+  .slide-image1 {
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    max-height: 40%;
+    max-width: 60%;
+    margin: 36px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-animation: mymove 5s 5; /* Safari 4.0 - 8.0 */
+    -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s 5;
+    animation-direction: alternate;
+    
+  }
+
+
+  @-webkit-keyframes mymove {
+    0%   {left: 0%; top: 60%;}
+    25%  {left: 60%; top: 60%;}
+    50%  {left: 60%; top: 0%;}
+    75%  {left: 0%; top: 0%;}
+    100% {left: 0%; top: 60%;}
+  }
+
+@keyframes mymove {
+  0%   {left: 0%; top: 60%;}
+  25%  {left: 60%; top: 60%;}
+  50%  {left: 60%; top: 0%;}
+  75%  {left: 0%; top: 0%;}
+  100% {left: 0%; top: 60%;}
+}
+
   b {
     font-weight: 500;
   }
